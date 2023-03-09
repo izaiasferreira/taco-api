@@ -18,6 +18,7 @@ module.exports = app => {
     res.json(FoodController.getFoodList())
   );
 
+
   /**
    * @api {get} /food/:foodId Request a specific food
    * @apiName GetFoodById
@@ -110,6 +111,12 @@ module.exports = app => {
     }
 
     res.json(FoodController.getFoodById(foodId));
+  });
+  app.get(`${API_ROUTE}/name`, (req, res) => {
+    const { foodName } = req.query;
+    // console.log(foodName)
+    // res.send('deu')
+    res.json(FoodController.getFoodByName(foodName));
   });
 
   /**
